@@ -6,7 +6,103 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+########### PROYECTO FINAL MVC #################
+# INTEGRANTES: dIEGO ALEXANDER ARDILA SANCHEZ - MIGUEL ANGEL LEAL BELTRAN
+#
+#A TENER EN CUENTA:
+# 1- Crea una nueva base de datos y conéctala con el proyecto. - LA BASE DE DATOS QUE SE CREO - OK 
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=proyectofinal
+DB_USERNAME=root
+DB_PASSWORD=
+#
+#DATOS DE INGRESO:
+Ejecuta las migraciones y valida que se hubiesen creado correctamente- OK.
+#
 
+1-El sistema debe permitir, desde el back end, la creación de asignaturas por semestres (nombre, cantidad de créditos, nombre docente, asignatura prerrequisito, cantidad de horas de trabajo autónomo y cantidad de horas de trabajo dirigido).
+
+ESTAS SON LAS RUTAS:
+Route::get('/materias', 'App\Http\Controllers\MateriasController@index');
+Route::post('/materias', 'App\Http\Controllers\MateriasController@store');
+Route::get('/materias/{materias}', 'App\Http\Controllers\MateriasController@show');
+Route::put('/materias/{materias}', 'App\Http\Controllers\MateriasController@update');
+Route::delete('materias/{materias}', 'App\Http\Controllers\MateriasController@destroy');
+
+2-El sistema permite la autenticación de dos tipos de usuarios: estudiantes y coordinador.
+ MEDIANTE LA AUTENTICACION CON VUE SE REALIZA LA VALICAION Y AUTENTICACION DESDE EL FRON END
+
+3- El coordinador puede gestionar (CRUD) las asignaturas, pero el estudiante no, únicamente las puede listar y ver información en detalle.
+ESTE APARATDO NO SE GENERO ROLES - SE REALIZARON CONSULTAS PERO NO SE LOGRO
+
+4- Genera la API que permita listar todas las asignaturas y consultar su información en detalle.
+
+LA API SE GENERO CON EXITO
+Route::get('/programas', 'App\Http\Controllers\ProgramasController@index');
+Route::post('/programas', 'App\Http\Controllers\ProgramasController@store');
+Route::get('/programas/{programas}', 'App\Http\Controllers\ProgramasController@show');
+Route::put('/programas/{programas}', 'App\Http\Controllers\ProgramasController@update');
+Route::delete('/programas/{programas}', 'App\Http\Controllers\ProgramasController@destroy');
+
+Route::get('/materias', 'App\Http\Controllers\MateriasController@index');
+Route::post('/materias', 'App\Http\Controllers\MateriasController@store');
+Route::get('/materias/{materias}', 'App\Http\Controllers\MateriasController@show');
+Route::put('/materias/{materias}', 'App\Http\Controllers\MateriasController@update');
+Route::delete('materias/{materias}', 'App\Http\Controllers\MateriasController@destroy');
+
+Route::get('/semestres', 'App\Http\Controllers\SemestresController@index');
+Route::post('/semestres', 'App\Http\Controllers\SemestresController@store');
+Route::get('/semestres/{semestres}', 'App\Http\Controllers\SemestresController@show');
+Route::put('/semestres/{semestres}', 'App\Http\Controllers\SemestresController@update');
+Route::delete('/semestres/{semestres}', 'App\Http\Controllers\SemestresController@destroy');
+
+5 -Asegúrate que desde el front end se pueda:
+
+ 5.1 - Listar las asignaturas, utilizando el componente card.
+ 
+ OK
+
+5.2 - Ver información en detalle de una asignatura, mediante el componente modal
+OK
+
+
+6 - DATOS DE PRUBEBA DESDE LA API
+//users
+admin
+admin@admin.com
+password:
+$2y$10$Q/dIUM5PjM66a7dRhcTDm.xq/MmMSw/.cxezTufnMOFWVyp1/YbaW
+password: 123456789
+
+
+// Programas
+{
+    "name":"Contabilidad"
+}
+
+
+// semestres
+{
+    "name":"Semestre I"
+}
+
+
+//Materias
+
+{
+    "name":"Programacion Basica",
+    "semestre_id": 1,
+    "programa_id":1,
+    "cantidad_creditos": "3",
+    "name_professor": "Juan Urrego",
+    "prerequisito":"Ninguno",
+    "cant_hrs_autonomo":"15",
+    "cant_hrs_dirigido":"25"
+}
+
+##################################
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
